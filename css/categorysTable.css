@@ -1,0 +1,8 @@
+#archiveTable th{
+    padding: 0 10px;
+    color: white;
+    background-color: #999999;
+}
+#archiveTable td {
+    padding: 0 10px;
+}

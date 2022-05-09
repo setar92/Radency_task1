@@ -1,0 +1,89 @@
+th {
+    text-align: left;
+}
+
+#mainTableBody td,
+.firstTR th {
+    padding-left: 10px;
+    padding-right: 10px;
+    text-overflow: clip;
+    overflow: hidden;
+    white-space: nowrap;
+
+}
+
+.firstTR th:nth-child(n+7),
+#mainTableBody td:nth-child(n+7) {
+    width: 3%;
+    text-align: center;
+}
+
+
+.firstTR th:nth-child(2),
+#mainTableBody td:nth-child(2) {
+    width: 16%;
+    text-overflow: ellipsis;
+}
+
+.firstTR th:nth-child(3),
+#mainTableBody td:nth-child(3) {
+    width: 11%;
+}
+
+.firstTR th:nth-child(4),
+#mainTableBody td:nth-child(4) {
+    width: 13%;
+}
+
+.firstTR th:nth-child(5),
+#mainTableBody td:nth-child(5) {
+    width: 27%;
+    text-overflow: ellipsis;
+}
+
+.firstTR th:nth-child(6),
+#mainTableBody td:nth-child(6) {
+    width: 18%;
+}
+
+tr.firstTR {
+    background-color: #999999;
+    height: 40px;
+    color: white;
+}
+
+th:first-child,
+td:first-child {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    padding-left: 5px;
+    width: 3%;
+}
+
+th:last-child,
+td:last-child {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+tr {
+    background-color: #e8eaf6;
+    height: 50px;
+
+}
+td.btn-1 button {
+    background-image: url(img/edit.svg);
+}
+
+td.btn-2 button {
+    background-image: url(img/archive-fill.svg);
+}
+
+td.btn-3 button {
+    background-image: url(img/trash3-fill.svg);
+}
+
+.emptyspace {
+    background-color: white;
+    height: 12px;
+}

@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/modal_input_form.css">
+    <link rel="stylesheet" href="css/mainTable.css">
+    <link rel="stylesheet" href="css/categorysTable.css">
+    <link rel="stylesheet" href="css/archive.css">
+    <title>Document</title>
+</head>
+
+
+
+<body>
+
+    <!-- Основна таблиця -->
+    <table id='mainTable'>
+        <thead>
+            <tr class="firstTR">
+                <th>
+
+                </th>
+                <th>
+                    Name
+                </th>
+                <th>
+                    Created
+                </th>
+                <th>
+                    Category
+                </th>
+                <th>
+                    Content
+                </th>
+                <th>
+                    Dates
+                </th>
+                <th>
+
+                </th>
+                <th>
+                    <button id="show-Archive-btn" title="show archive">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white">
+                            <path
+                                d="M0 2a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1v7.5a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 1 12.5V5a1 1 0 0 1-1-1V2zm2 3v7.5A1.5 1.5 0 0 0 3.5 14h9a1.5 1.5 0 0 0 1.5-1.5V5H2zm13-3H1v2h14V2zM5 7.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5z" />
+                        </svg>
+                    </button>
+                </th>
+                <th>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi bi-trash3">
+                        <path
+                            d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5h9.916Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z" />
+                    </svg>
+                </th>
+            </tr>
+            <tr class="emptyspace">
+                <td colspan="9"></td>
+            </tr>
+        </thead>
+
+        <tbody id="mainTableBody">
+
+        </tbody>
+
+    </table>
+    <!-- Шаблон нотатки -->
+    <template id='noteTemplate'>
+        <tr class="notes">
+            <td><img src="css/img/archive-fill.svg" alt="category" title="category"></td>
+            <td>The theory of evolution end else</td>
+            <td>April 20, 2021</td>
+            <td>Random Thought</td>
+            <td>Some loome long teddddddddddddxt wome long text wng text wh ome loome long teddddddddddddxt wome lon
+            </td>
+            <td>5/7/2015, 7/5/2023</td>
+            <td class="btn-1"><button title="edit"></button></td>
+            <td class="btn-2"><button title="archive"></button></td>
+            <td class="btn-3"><button title="remove"></button></td>
+        </tr>
+
+        <tr class="emptyspace">
+            <td colspan="9"></td>
+        </tr>
+
+    </template>
+    <!-- Кнопка "Create node" -->
+    <div class='btn-div'>
+        <button class="btn-create-note">Create node</button>
+        <button class="btn-create-note" style="float: left;" id="btn-open-archive">Open archive</button>
+    </div>
+    
+
+    <!-- Табличка кількості нотаток по категоріям -->
+    <table id="archiveTable">
+        <thead>
+            <tr>
+                <th></th>
+                <th style="width: 40%">Note Category</th>
+                <th style="width: 20%">Active</th>
+                <th style="width: 37%">Archived</th>
+            </tr>
+            <tr class="emptyspace">
+                <td colspan="4"></td>
+            </tr>
+        </thead>
+        <tbody>
+
+
+
+        </tbody>
+
+
+    </table>
+    <!-- Шаблон рядка з кількостями по категоріях -->
+    <template id='categorysTemplate'>
+        <tr id='categoryTr'>
+            <td><img src="" alt=""></td>
+            <td style="width: 40%"></td>
+            <td style="width: 20%"></td>
+            <td style="width: 37%"></td>
+        </tr>
+        <tr class="emptyspace">
+            <td colspan="4"></td>
+        </tr>
+    </template>
+
+    <!-- Модальне вікно для створення нотатки-->
+    <div class="modal" id='createModal'>
+        <div class="modal_content">
+            <div class="form-div">
+                <form class="inputForm">
+
+                    <button class="btn-close">&times;</button>
+
+                    <p style="margin-top: 30px;">
+                        <label for="nodeName" style="width: 30%; display: inline-block; text-align: center;">Type node
+                            name</label>
+                        <input type="text" name="nodeName" required style="width: 58%;">
+                    </p>
+
+                    <p>
+                        <label for="nodeBody"
+                            style="vertical-align: top; width: 30%; display: inline-block; text-align: center;">Type
+                            node
+                            text</label>
+                        <textarea name="nodeBody" id="" cols="64" rows="2" required style="width: 58%;"></textarea>
+                    </p>
+                    <p style="vertical-align: top; width: 30%; display: inline-block;"></p>
+
+                    <select name="category" id="category" required>
+                        <option value="" disabled selected>Chose category</option>
+                        <option value="Task">Task</option>
+                        <option value="Random Thought">Random Thought</option>
+                        <option value="Idea">Idea</option>
+                    </select>
+                    <div style="margin-top: 10px;">
+                        <p style="vertical-align: top; width: 30%; display:inline-block; float:none"></p>
+                        <button type="submit" class="btn-submit-reset" name="submit">submit</button>
+                        <button type="reset" class="btn-submit-reset">reset</button>
+
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- Модальне вікно для редагування нотатки -->
+    <div class="modal" id="editModal">
+        <div class="modal_content">
+            <div class="form-div">
+                <form class="inputForm">
+
+                    <button class="btn-close">&times;</button>
+
+                    <p style="margin-top: 30px;">
+                        <label for="nodeName" style="width: 30%; display: inline-block; text-align: center;">Type node
+                            name</label>
+                        <input type="text" name="nodeName" required style="width: 58%;">
+                    </p>
+
+                    <p>
+                        <label for="nodeBody"
+                            style="vertical-align: top; width: 30%; display: inline-block; text-align: center;">Type
+                            node
+                            text</label>
+                        <textarea name="nodeBody" id="" cols="64" rows="2" required style="width: 58%;"></textarea>
+                    </p>
+                    <p style="vertical-align: top; width: 30%; display: inline-block;"></p>
+
+                    <select name="category" id="category" required>
+                        <option value="" disabled selected>Chose category</option>
+                        <option value="Task">Task</option>
+                        <option value="Random Thought">Random Thought</option>
+                        <option value="Idea">Idea</option>
+                    </select>
+                    <div style="margin-top: 10px;">
+                        <p style="vertical-align: top; width: 30%; display:inline-block; float:none"></p>
+                        <button type="submit" class="btn-submit-reset" name="save">save</button>
+                        <button type="reset" class="btn-submit-reset">reset</button>
+
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- Архів -->
+    <div class="modal" id='archived'>
+        <div class="modal_content">
+            <table id='archiveT'>
+                <thead>
+                    <tr class="firstTR">
+                        <th>
+
+                        </th>
+                        <th>
+                            Name
+                        </th>
+                        <th>
+                            Created
+                        </th>
+                        <th>
+                            Category
+                        </th>
+                        <th>
+                            Content
+                        </th>
+                        <th>
+                            Dates
+                        </th>
+                        <th>
+
+                        </th>
+                        <th>
+                            <button id="show-Archive-btn" title="show archive">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white">
+                                    <path
+                                        d="M0 2a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1v7.5a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 1 12.5V5a1 1 0 0 1-1-1V2zm2 3v7.5A1.5 1.5 0 0 0 3.5 14h9a1.5 1.5 0 0 0 1.5-1.5V5H2zm13-3H1v2h14V2zM5 7.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5z" />
+                                </svg>
+                            </button>
+                        </th>
+                        <th>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white"
+                                class="bi bi-trash3">
+                                <path
+                                    d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5h9.916Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z" />
+                            </svg>
+                        </th>
+                    </tr>
+                    <tr class="emptyspace">
+                        <td colspan="9"></td>
+                    </tr>
+                </thead>
+
+                <tbody id="archiveTableBody">
+
+                </tbody>
+                <tr class="emptyspace" style="background-color: #e8eaf6;">
+                    <td colspan="9"><button id="close-archive" style="margin-top: 10px">close archive</button></td>
+                </tr>
+                
+            </table>
+
+        </div>
+    </div>
+
+
+
+
+    <script src="js/archive.js"></script>
+    <script src="js/Edit-btn.js"></script>
+    <script src="js/renderCategoryTable.js"></script>
+    <script src="js/modal.js"></script>
+    <script src="js/btn-createNote.js"></script>
+    <script src="js/Note.js"></script>
+    <script src="js/NoteList.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,68 @@
+/*Modal window*/
+.modal {
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0.4);
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.5s;
+}
+.modal.active {
+    pointer-events: all;
+    opacity: 1;
+}
+
+.modal_content {
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #e8eaf6;
+    width: auto;
+    
+    transform: scale(0.5);
+    transition: 0.5s all;
+}
+.modal_content.active {
+    transform: scale(1);
+}
+/*----------------------------------------*/
+/*input form*/
+.btn-submit-reset {
+    float: none;
+    display: inline-block;
+    width: 18%;
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+#category {
+    padding: 5px;
+    border-radius: 5px;
+}
+
+
+.inputForm {   
+    margin: 0;
+    padding: 5px;
+    background-color: #e8eaf6;
+    border-radius: 10px;
+}
+
+.btn-close {
+    display: flex;
+    float: right;
+    float: top;
+    font-size: 18px;
+    border-radius: 20%;
+    width: auto;
+    height: auto;
+    background-color: #e8eaf6;
+    justify-content: center;
+    align-items: center;
+}
+

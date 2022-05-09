@@ -1,0 +1,17 @@
+#archived{
+
+   
+    padding-right: 10px;
+   
+    white-space: nowrap;
+}
+#archived td:nth-child(2),
+#archived td:nth-child(5)
+{
+    text-overflow: ellipsis;
+    overflow: hidden;
+   
+}
+#archived th {
+    padding-left: 0;
+}
