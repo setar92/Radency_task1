@@ -10,7 +10,6 @@ function activeNotes() {
         if (!el.isDone) {
             tbody.append(el.createNote())
         }
-        // Малюємо табличку з кількостями нотаток по категоріям
         renderCategorys();
         archive();
     });
